@@ -12,14 +12,14 @@ var int: c3w3; %cannery 3 to warehouse 3
 var int: c3w4; %cannery 3 to warehouse 4
 
 
-constraint c1w1+c1w2+c1w3+c1w4=75;
-constraint c2w1+c2w2+c2w3+c2w4=125;
-constraint c3w1+c3w2+c3w3+c3w4=100;
+constraint c1w1+c1w2+c1w3+c1w4<=75;
+constraint c2w1+c2w2+c2w3+c2w4<=125;
+constraint c3w1+c3w2+c3w3+c3w4<=100;
 
-constraint c1w1+c2w1+c3w1=80;
-constraint c1w2+c2w2+c3w2=65;
-constraint c1w3+c2w3+c3w3=70;
-constraint c1w4+c2w4+c3w4=85;
+constraint c1w1+c2w1+c3w1>=80;
+constraint c1w2+c2w2+c3w2>=65;
+constraint c1w3+c2w3+c3w3>=70;
+constraint c1w4+c2w4+c3w4>=85;
 
 constraint c1w1>=0;
 constraint c1w2>=0;
