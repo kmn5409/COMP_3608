@@ -26,10 +26,10 @@ m = Model(GLPK.Optimizer)
 
 
 #Demand
-@constraint(m, constraint4, x_1_1 + x_2_1 + x_3_1 == 80)
-@constraint(m, constraint5, x_1_2 + x_2_2 + x_3_2 == 65)
-@constraint(m, constraint6, x_1_3 + x_2_3 + x_3_3 == 70)
-@constraint(m, constraint7, x_1_4 + x_2_4 + x_3_4 == 85)
+@constraint(m, constraint4, x_1_1 + x_2_1 + x_3_1 >= 80)
+@constraint(m, constraint5, x_1_2 + x_2_2 + x_3_2 >= 65)
+@constraint(m, constraint6, x_1_3 + x_2_3 + x_3_3 >= 70)
+@constraint(m, constraint7, x_1_4 + x_2_4 + x_3_4 >= 85)
 
 @constraint(m, constraint8, x_1_1 >= 0)
 @constraint(m, constraint9, x_1_2 >= 0)
