@@ -30,27 +30,29 @@ def loss_function(A, x, b):
     #print((A@x).shape)
     #print(A@x - b)
     #print('x is :\n{}'.format(x)) 
-    loss = 0
-    for i in range(5000):
-       loss+= ( th.norm((A[i,:]@x - b)) )**2 
-    return loss
-    #return ( th.norm((A@x - b)) ) **2
+    #loss = 0
+    #for i in range(5000):
+    #   loss+= ( th.norm((A[i,:]@x - b)) )**2 
+    #return loss
+    return ( th.norm((A@x - b)) ) **2
 
 class LeastSquaresContainer(nn.Module):
     def __init__(self, n):
         super().__init__()
-        x = th.tensor(np.random.uniform(low=1, high =13, size=20), dtype=th.float32)
+        #x = th.tensor(np.random.uniform(low=1, high =13, size=20), dtype=th.float32)
+        print('n is {}'.format(n))
+        x = th.tensor(np.random.random(n), dtype=th.float32)
         self.x = nn.Parameter(x)
 
     def loss(self, A, b):
         return loss_function(A, self.x, b)
 
-def least_squares_approx(A, b, lr=0.01, epochs=2):
+def least_squares_approx(A, b, lr=0.00001, epochs=5):
     #m, n = A.shape
     #estimator = LeastSquaresContrainer(n=2)
     #estimator = LeastSquaresContainer(n=b.shape[0])
     #print('Getting shape: {}'.format(20))
-    estimator = LeastSquaresContainer(n=b)
+    estimator = LeastSquaresContainer(n=A.shape[1])
     loss_curve = []
     optimizer = optim.SGD(estimator.parameters(), lr=lr)
     for epoch in range(epochs):
