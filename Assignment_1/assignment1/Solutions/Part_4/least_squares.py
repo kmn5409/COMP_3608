@@ -9,12 +9,6 @@ E = np.load('../../E.npy')
 d = np.load('../../d.npy')
 E = th.tensor(E, dtype=th.float32)
 d = th.tensor(d, dtype=th.float32)
-print('E is :\n{}\n d is :\n{}'.format(E,d))
-print('E\'s shape is {}'.format(E.shape))
-print('d\'s shape is {}'.format(d.shape))
-print('d\'s biggest value is {}'.format(d.max()))
-print('d\'s smallest value is {}'.format(d.min()))
-print(E[0,:])
 
 
 def plot_loss_curve(loss_curve):
